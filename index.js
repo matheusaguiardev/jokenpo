@@ -1,6 +1,10 @@
 import {name as appName} from './app.json';
 import React, {Component} from 'React';
 import { AppRegistry, View, Text, Button, Image, StyleSheet } from 'react-native';
+import HeaderView from './src/components/Header';
+import PlayedView from './src/components/PlayedView';
+import ChallengeView from './src/components/ChallengerView';
+
 
 class App extends Component{
 
@@ -96,61 +100,6 @@ class App extends Component{
     }
 }
 
-class ChallengeView extends Component{
-    render(){
-        if(this.props.points === 0){
-            return false;
-        } else {
-            return (
-                <View>
-                    <Text>Quantidade de vitórias: {this.props.player}</Text>
-                    <Text>Quantidade de derrotas: {this.props.ed}</Text>
-                </View> 
-            )  
-        }
-    }
-}
-
-class HeaderView extends Component{
-    render(){
-        return (
-            <View>
-                <Image  style={customStyle.imageHeader} source={require('./imagens/jokenpo.png')}/> 
-            </View>
-        )
-    }
-}
-
-class PlayedView extends Component{
- 
-    render(){
-        if(this.props.picked === 'Pedra'){
-            return (
-                <View style={customStyle.playerField}>
-                    <Text style={customStyle.txtPlayer}>{this.props.player} </Text>
-                    <Image source={require('./imagens/pedra.png')}/>
-                </View>
-            )
-        } else if(this.props.picked === 'Papel'){
-            return (
-                <View style={customStyle.playerField}>
-                    <Text style={customStyle.txtPlayer}>{this.props.player} </Text>
-                    <Image source={require('./imagens/papel.png')}/>
-                </View>
-            )
-        } else if(this.props.picked === 'Tesoura'){
-            return (
-                <View style={customStyle.playerField}>
-                    <Text style={customStyle.txtPlayer}>{this.props.player} </Text>
-                    <Image source={require('./imagens/tesoura.png')}/>
-                </View>
-            )
-        } else {
-            return false;
-        }
-    }
-}
-
 const customStyle = StyleSheet.create({
     btnAction: {
         width: 90
@@ -172,14 +121,7 @@ const customStyle = StyleSheet.create({
         color: 'red',
         height: 60,
         marginTop: 10
-    }, 
-    txtPlayer: {
-        fontSize: 20
-    }, 
-    playerField: {
-        alignItems: 'center',
-        marginTop: 10
-    }, 
+    },  
     imageHeader:{
         width: '100%'
     },
