@@ -1,5 +1,5 @@
 import React, {Component} from 'React';
-import {Text, View,} from 'react-native';
+import {Text, View} from 'react-native';
 
 class ChallengeView extends Component{
     render(){

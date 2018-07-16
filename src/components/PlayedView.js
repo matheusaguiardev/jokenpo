@@ -1,27 +1,31 @@
 import React, {Component} from 'React';
 import {View, Image, Text, StyleSheet} from 'react-native';
 
+const pedraImg = require('../../imagens/pedra.png');
+const papelImg = require('../../imagens/papel.png');
+const tesouraImg = require('../../imagens/tesoura.png')
+
 class PlayedView extends Component {
     render(){
         if(this.props.picked === 'Pedra'){
             return (
                 <View style={customStyle.playerField}>
                     <Text style={customStyle.txtPlayer}>{this.props.player} </Text>
-                    <Image source={require('../../imagens/pedra.png')}/>
+                    <Image source={pedraImg}/>
                 </View>
             )
         } else if(this.props.picked === 'Papel'){
             return (
                 <View style={customStyle.playerField}>
                     <Text style={customStyle.txtPlayer}>{this.props.player} </Text>
-                    <Image source={require('../../imagens/papel.png')}/>
+                    <Image source={papelImg}/>
                 </View>
             )
         } else if(this.props.picked === 'Tesoura'){
             return (
                 <View style={customStyle.playerField}>
                     <Text style={customStyle.txtPlayer}>{this.props.player} </Text>
-                    <Image source={require('../../imagens/tesoura.png')}/>
+                    <Image source={tesouraImg}/>
                 </View>
             )
         } else {

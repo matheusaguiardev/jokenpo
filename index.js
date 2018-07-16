@@ -6,12 +6,12 @@ import PlayedView from './src/components/PlayedView';
 import ChallengeView from './src/components/ChallengerView';
 
 
-class App extends Component{
+class App extends Component {
 
     edWins = 0;
     userWins = 0;
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             userPlay : '',
@@ -20,29 +20,30 @@ class App extends Component{
          };
     }
 
-    getWinner(computer, player){
-        if(computer === player){
+    getWinner(computer, player) {
+        
+        if(computer === player) {
             return 'Empate';
         }
 
-        if(computer === 'Papel'){
-            if(player === 'Tesoura'){
+        if(computer === 'Papel') {
+            if(player === 'Tesoura') {
                 this.userWins++;
                 return 'Você venceu !!';
             } else {
                 this.edWins++;
                 return 'Você perdeu';
             }
-        } else if(computer === 'Tesoura'){
-            if(player === 'Papel'){
+        } else if(computer === 'Tesoura') {
+            if(player === 'Papel') {
                 this.edWins++;
                 return 'Você perdeu';
             } else {
                 this.userWins++;
                 return 'Você venceu !!';
             }
-        } else if(computer === 'Pedra'){
-            if(player === 'Tesoura'){
+        } else if(computer === 'Pedra') {
+            if(player === 'Tesoura') {
                 this.edWins++;
                 return 'Você perdeu';
             } else {
@@ -52,13 +53,14 @@ class App extends Component{
         }
     }
 
-    jokenpo(userPlay){
-        var computerGame = Math.floor(Math.random() * 3);
+    jokenpo(userPlay) {
+        let computerGame = Math.floor(Math.random() * 3);
         
         switch(computerGame){
             case 0: computerGame = 'Pedra'; break;
             case 1: computerGame = 'Papel'; break;
             case 2: computerGame = 'Tesoura'; break;
+            default: computerGame = '';
         }
 
         this.setState({userPlay: userPlay, computerPlay: computerGame, resultGame: this.getWinner(computerGame, userPlay)});
@@ -68,7 +70,7 @@ class App extends Component{
         return (
             <View>
                 
-                <HeaderView></HeaderView>
+                <HeaderView/>
 
                 <View style={customStyle.distribuition}>
                     <View style={customStyle.btnAction}>
@@ -91,10 +93,10 @@ class App extends Component{
                         <PlayedView picked={this.state.computerPlay} player='Catita'></PlayedView>
                     </View>
 
-                    <PlayedView picked={this.state.userPlay} player='Você'></PlayedView>
+                    <PlayedView picked={this.state.userPlay} player='Você'/>
                 </View>       
 
-                <ChallengeView points= {this.edWins+this.userWins} player={this.userWins} ed={this.edWins} ></ChallengeView>
+                <ChallengeView points= {this.edWins+this.userWins} player={this.userWins} ed={this.edWins} />
             </View>
         );
     }
